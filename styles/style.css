@@ -2,5 +2,323 @@
 
 .page {
   /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
-  font-family: 'IBM Plex mono', monospace;
+  font-family: "IBM Plex mono", monospace;
+  background-image: url("../images/cover-image-dark.png");
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+/* Декорирование акцентных элементов */
+.title-decor {
+  --text-color: #000028;
+  background-color: var(--accent-color, #ff0070);
+  color: var(--text-color, #000028);
+}
+
+.title-decor-regular {
+  font-weight: 400;
+}
+
+.title-text-color {
+  color: var(--accent-color);
+}
+
+.section__link {
+  text-shadow: 2px 2px 0 var(--accent-color, #ff0070);
+}
+
+.section__link:hover {
+  cursor: pointer;
+  border-block-end: 1px solid currentColor;
+}
+
+.section__link:focus {
+  outline: none;
+}
+
+.section__link:focus-visible {
+  outline: 1px solid currentColor;
+}
+
+/* Настройка хедера */
+.header {
+  position: relative;
+  display: grid;
+  block-size: 100vh;
+  grid-template-rows: 1fr min-content 1fr;
+  padding: 20px;
+}
+
+/* Уголки */
+.decorated-zone::before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  inset-inline-end: 20px;
+  inset-block-start: 20px;
+  inline-size: 25px;
+  block-size: 25px;
+  border-inline-end: 1px solid var(--accent-color, #ff0070);
+  border-block-start: 1px solid var(--accent-color, #ff0070);
+}
+
+.decorated-zone::after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  inset-inline-start: 20px;
+  inset-block-end: 20px;
+  inline-size: 25px;
+  block-size: 25px;
+  border-inline-start: 1px solid var(--accent-color, #ff0070);
+  border-block-end: 1px solid var(--accent-color, #ff0070);
+}
+
+/* Лампочка */
+.header__lightbulb {
+  display: block;
+  position: absolute;
+  inset-inline-end: 29px;
+  inset-block-start: 21px;
+  text-transform: uppercase;
+  color: var(--accent-color, #ff0070);
+}
+
+.header__lightbulb::after {
+  display: inline-block;
+  content: "";
+  inline-size: 9px;
+  block-size: 9px;
+  border-radius: 50%;
+  margin-inline-start: 10px;
+  margin-bottom: 2px;
+  background-color: var(--accent-color, #ff0070);
+  box-shadow: 0 0 4px 2px var(--accent-color, #ff0070);
+}
+
+/* Переключатель тем */
+.header__theme-menu {
+  justify-self: center;
+}
+
+.header__theme-menu-list {
+  display: flex;
+  row-gap: 13px;
+  column-gap: 10px;
+}
+
+.header__theme-menu-button {
+  padding: 0 13px;
+  background: none;
+  border: none;
+  text-transform: lowercase;
+  color: var(--accent-color, #ff0070);
+}
+
+.header__theme-menu-button:hover {
+  cursor: pointer;
+  outline: 1px solid rgba(255, 0, 112, 0.40);
+}
+
+.header__theme-menu-button:focus {
+  outline: none;
+}
+
+.header__theme-menu-button:focus-visible {
+  border-block-end: 1px solid currentColor;
+}
+
+@media (width < 900px) {
+  .header__theme-menu {
+    place-self: center end;
+  }
+  .header__theme-menu-list {
+    flex-direction: column;
+  }
+}
+
+/* Заголовок */
+.header__title {
+  position: relative;
+  align-self: center;
+  inset-inline-start: -2%;
+}
+
+.title-style {
+  --text-size: 157px;
+  --text-color: #db00ff;
+  color: var(--text-color, #db00ff);
+  text-shadow: 4px 4px 0 var(--accent-color, #ff0070);
+  font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+  font-weight: 700;
+  line-height: 82.5%;
+}
+
+/* Текст в хедере */
+.header__text {
+  justify-self: end;
+  align-self: start;
+  margin-block-start: 11.5%;
+  inline-size: 50%;
+  font-weight: 700;
+}
+
+@media (width <= 900px) {
+  .header__text {
+    margin-block-start: 22.5%;
+  }
+  .header__title {
+    inset-inline-start: -3%;
+  }
+}
+
+@media (width < 500px) {
+  .header {
+    padding: 10px;
+  }
+  .header__title {
+    font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+    inset-inline-start: 0;
+  }
+
+  .header__text {
+    inline-size: 100%;
+    margin-block-start: 15.5%;
+  }
+}
+
+/* Основной контент */
+.content {
+  display: grid;
+  gap: 80px;
+  padding: 60px 20px;
+}
+
+.section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.section__text-block {
+  display: grid;
+  gap: 10px;
+  align-content: start;
+}
+
+/* Первая секция */
+.section:nth-of-type(1) {
+  grid-template-areas:
+    "title block1 block1"
+    "title block2 block2";
+}
+
+.section__title {
+  grid-area: title;
+}
+
+.section:nth-of-type(1) .section__text-block:nth-of-type(1) {
+  grid-area: block1;
+}
+
+.section:nth-of-type(1) .section__text-block:nth-of-type(2) {
+  grid-area: block2;
+}
+
+/* Вторая секция */
+.section:nth-of-type(2) {
+  grid-template-areas:
+    "title . ."
+    "block1 block2 block3";
+}
+
+.section:nth-of-type(2) .section__text-block:nth-of-type(1) {
+  grid-area: block1;
+}
+
+.section:nth-of-type(2) .section__text-block:nth-of-type(2) {
+  grid-area: block2;
+}
+
+.section:nth-of-type(2) .section__text-block:nth-of-type(3) {
+  grid-area: block3;
+}
+
+/* Третья секция */
+.section:nth-of-type(3) {
+  grid-template-areas:
+    "title block1 block1"
+    "title block2 block2"
+    "title block3 block3"
+    "title block4 block4"
+    "title block5 block5"
+    "title block6 block6";
+}
+
+.section:nth-of-type(3) .section__subtitle:nth-of-type(1) {
+  grid-area: block1;
+}
+
+.section:nth-of-type(3) .section__text-block:nth-of-type(1) {
+  grid-area: block2;
+}
+
+.section:nth-of-type(3) .section__text-block:nth-of-type(2) {
+  grid-area: block3;
+}
+
+.section:nth-of-type(3) .section__text-block:nth-of-type(3) {
+  grid-area: block4;
+}
+
+.section:nth-of-type(3) .section__text-block:nth-of-type(4) {
+  grid-area: block5;
+}
+
+.section:nth-of-type(3) .section__text-block:nth-of-type(5) {
+  grid-area: block6;
+}
+
+/* Секция с картинками */
+.section:nth-of-type(4) {
+  grid-template-areas:
+    "title title title"
+    "picture1 picture1 picture2"
+    "picture3 picture4 picture2"
+    "picture3 picture5 picture5";
+}
+
+.section:nth-of-type(4) .section__subtitle:nth-of-type(1) {
+  grid-area: title;
+}
+
+.section:nth-of-type(4) .section__picture:nth-of-type(1) {
+  grid-area: picture1;
+}
+
+.section:nth-of-type(4) .section__picture:nth-of-type(2) {
+  grid-area: picture2;
+}
+
+.section:nth-of-type(4) .section__picture:nth-of-type(3) {
+  grid-area: picture3;
+}
+
+.section:nth-of-type(4) .section__picture:nth-of-type(4) {
+  grid-area: picture4;
+}
+
+.section:nth-of-type(4) .section__picture:nth-of-type(5) {
+  grid-area: picture5;
+}
+
+/* Футер */
+.footer {
+  position: relative;
+}
+
+.footer__title {
+  text-align: center;
+  padding: 319px 0;
 }
