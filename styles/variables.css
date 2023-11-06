@@ -6,6 +6,14 @@
 :root {
   --bg-color: #000028;
   --text-color: #f1b2ce;
+  --h1-color: #DB00FF;
+  --h2-color: #ff0070;
+  --button-color: #ff0070;
+  --button-hover-color: rgba(255, 0, 112, 0.4);
+  --decoration-color: #ff0070;
+  --lightbulb-color: #ff0070;
+  --lightbulb-visible: visible;
   --accent-color: #ff0070;
   --text-size: 18px;
+  --bg-image: url('../images/cover-image-dark.png');
 }

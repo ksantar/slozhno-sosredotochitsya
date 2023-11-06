@@ -3,7 +3,7 @@
 .page {
   /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
   font-family: "IBM Plex mono", monospace;
-  background-image: url("../images/cover-image-dark.png");
+  background-image: var(--bg-image);
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
@@ -18,10 +18,6 @@
 
 .title-decor-regular {
   font-weight: 400;
-}
-
-.title-text-color {
-  color: var(--accent-color);
 }
 
 .section__link {
@@ -48,8 +44,8 @@
 }
 
 .decorated-zone {
-  position: relative;
   block-size: 100vh;
+  position: relative;
   display: grid;
 }
 
@@ -62,8 +58,8 @@
   inset-block-start: 20px;
   inline-size: 25px;
   block-size: 25px;
-  border-inline-end: 1px solid var(--accent-color, #ff0070);
-  border-block-start: 1px solid var(--accent-color, #ff0070);
+  border-inline-end: 1px solid var(--decoration-color, #ff0070);
+  border-block-start: 1px solid var(--decoration-color, #ff0070);
 }
 
 .decorated-zone::after {
@@ -74,17 +70,17 @@
   inset-block-end: 20px;
   inline-size: 25px;
   block-size: 25px;
-  border-inline-start: 1px solid var(--accent-color, #ff0070);
-  border-block-end: 1px solid var(--accent-color, #ff0070);
+  border-inline-start: 1px solid var(--decoration-color, #ff0070);
+  border-block-end: 1px solid var(--decoration-color, #ff0070);
 }
 
 /* Лампочка */
 .header__lightbulb {
-  display: block;
+  display: var(--lightbulb-visible, visible);
   position: absolute;
   inset-inline-end: 29px;
   inset-block-start: 21px;
-  color: var(--accent-color, #ff0070);
+  color: var(--lightbulb-color, #ff0070);
 }
 
 .header__lightbulb::before {
@@ -100,8 +96,8 @@
   border-radius: 50%;
   margin-inline-start: 10px;
   margin-bottom: 2px;
-  background-color: var(--accent-color, #ff0070);
-  box-shadow: 0 0 4px 2px var(--accent-color, #ff0070);
+  background-color: var(--lightbulb-color, #ff0070);
+  box-shadow: 0 0 4px 2px var(--lightbulb-color, #ff0070);
 }
 
 /* Переключатель тем */
@@ -120,12 +116,12 @@
   background: none;
   border: none;
   text-transform: lowercase;
-  color: var(--accent-color, #ff0070);
+  color: var(--button-color, #ff0070);
 }
 
 .header__theme-menu-button:hover {
   cursor: pointer;
-  outline: 1px solid rgba(255, 0, 112, 0.4);
+  outline: 1px solid var(--button-hover-color, rgba(255, 0, 112, 0.4));
 }
 
 .header__theme-menu-button:focus {
@@ -159,8 +155,7 @@
 
 .title-style {
   --text-size: 157px;
-  --text-color: #db00ff;
-  color: var(--text-color, #db00ff);
+  color: var(--h1-color, #db00ff);
   text-shadow: 4px 4px 0 var(--accent-color, #ff0070);
   font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
   font-weight: 700;
@@ -247,6 +242,7 @@
 }
 
 .section__title {
+  color: var(--h2-color, #ff0070);
   grid-area: title;
 }
 
