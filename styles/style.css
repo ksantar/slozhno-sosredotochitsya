@@ -43,11 +43,14 @@
 
 /* Настройка хедера */
 .header {
-  position: relative;
-  display: grid;
-  block-size: 100vh;
   grid-template-rows: 1fr min-content 1fr;
   padding: 20px;
+}
+
+.decorated-zone {
+  position: relative;
+  block-size: 100vh;
+  display: grid;
 }
 
 /* Уголки */
@@ -81,8 +84,12 @@
   position: absolute;
   inset-inline-end: 29px;
   inset-block-start: 21px;
-  text-transform: uppercase;
   color: var(--accent-color, #ff0070);
+}
+
+.header__lightbulb::before {
+  content: "rec";
+  text-transform: uppercase;
 }
 
 .header__lightbulb::after {
@@ -118,7 +125,7 @@
 
 .header__theme-menu-button:hover {
   cursor: pointer;
-  outline: 1px solid rgba(255, 0, 112, 0.40);
+  outline: 1px solid rgba(255, 0, 112, 0.4);
 }
 
 .header__theme-menu-button:focus {
@@ -127,6 +134,11 @@
 
 .header__theme-menu-button:focus-visible {
   border-block-end: 1px solid currentColor;
+}
+
+.header__theme-menu-button_active {
+  pointer-events: none;
+  outline: 1px solid currentColor;
 }
 
 @media (width < 900px) {
@@ -168,23 +180,43 @@
   .header__text {
     margin-block-start: 22.5%;
   }
+
   .header__title {
     inset-inline-start: -3%;
   }
 }
 
-@media (width < 500px) {
+@media (width < 600px) {
   .header {
     padding: 10px;
   }
+
+  .header__lightbulb {
+    inset-inline-end: 19px;
+    inset-block-start: 12px;
+  }
+
+  .title-style {
+    font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem)
+  }
+
   .header__title {
-    font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
     inset-inline-start: 0;
   }
 
   .header__text {
     inline-size: 100%;
     margin-block-start: 15.5%;
+  }
+
+  .decorated-zone::before {
+    inset-inline-end: 10px;
+    inset-block-start: 10px;
+  }
+
+  .decorated-zone::after {
+    inset-inline-start: 10px;
+    inset-block-end: 10px;
   }
 }
 
@@ -313,12 +345,48 @@
   grid-area: picture5;
 }
 
-/* Футер */
-.footer {
-  position: relative;
+@media (width < 900px) {
+  .section:nth-of-type(2) {
+    grid-template-areas:
+      "title . ."
+      "block1 block1 block1"
+      "block2 block2 block2"
+      "block3 block3 block3";
+  }
+
+  .section__title {
+    inline-size: 236px;
+  }
 }
 
+@media (width < 600px) {
+  .content {
+    padding: 40px 10px;
+    gap: 50px;
+  }
+
+  .section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .section__title {
+    inline-size: 100%;
+  }
+
+  .section:last-of-type {
+    gap: 10px;
+  }
+
+  .section:last-of-type .section__picture {
+    object-fit: cover;
+    block-size: initial;
+  }
+}
+
+/* Футер */
 .footer__title {
-  text-align: center;
-  padding: 319px 0;
+  place-self: center;
+  text-shadow: 2px 2px 0 var(--accent-color, #ff0070);
 }
