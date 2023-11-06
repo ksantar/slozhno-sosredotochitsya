@@ -7,6 +7,7 @@
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
+  background-color: var(--bg-color, #000028);
 }
 
 /* Декорирование акцентных элементов */
