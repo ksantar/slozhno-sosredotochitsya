@@ -3,6 +3,7 @@
 .page {
   /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
   font-family: "IBM Plex mono", monospace;
+  font-weight: var(--font-weight, 400);
   background-image: var(--bg-image);
   background-position: center;
   background-size: cover;
@@ -18,7 +19,7 @@
 }
 
 .title-decor-regular {
-  font-weight: 400;
+  font-weight: inherit;
 }
 
 .section__link {
@@ -147,10 +148,11 @@
 }
 
 .title-style {
+  --font-weight: 700;
   color: var(--main-color, #db00ff);
   text-shadow: 4px 4px 0 var(--accent-color, #ff0070);
   font-size: var(--adaptive-font-size, clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem));
-  font-weight: 700;
+  font-weight: var(--font-weight, 700);
   line-height: 82.5%;
 }
 
