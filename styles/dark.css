@@ -11,15 +11,16 @@
   */
   --bg-color: #000028;
   --text-color: #f1b2ce;
-  --h1-color: #db00ff;
-  --h2-color: #ff0070;
+  --main-color: #db00ff;
+  --secondary-color: #ff0070;
   --button-color: #ff0070;
   --button-hover-color: rgba(255, 0, 112, 0.4);
   --decoration-color: #ff0070;
   --lightbulb-color: #ff0070;
   --lightbulb-visible: visible;
   --accent-color: #ff0070;
-  --text-size: 18px;
+  --font-size: 18px;
+  --adaptive-font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
   --bg-image: url("../images/cover-image-dark.png");
 }
 
@@ -28,15 +29,16 @@
     /* Дублируем переменные светлой темы */
     --bg-color: #000028;
     --text-color: #f1b2ce;
-    --h1-color: #db00ff;
-    --h2-color: #ff0070;
+    --main-color: #db00ff;
+    --secondary-color: #ff0070;
     --button-color: #ff0070;
     --button-hover-color: rgba(255, 0, 112, 0.4);
     --decoration-color: #ff0070;
     --lightbulb-color: #ff0070;
     --lightbulb-visible: visible;
     --accent-color: #ff0070;
-    --text-size: 18px;
+    --font-size: 18px;
+    --adaptive-font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
     --bg-image: url("../images/cover-image-dark.png");
   }
 }
