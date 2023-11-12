@@ -55,7 +55,6 @@
 /* Уголки */
 .decorated-zone::before {
   content: "";
-  display: block;
   position: absolute;
   inset-inline-end: 20px;
   inset-block-start: 20px;
